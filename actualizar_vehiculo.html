@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Actualizar Usuario - Biometric Access</title>
+  <title>Actualizar Vehículo - Biometric Access</title>
   <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
@@ -26,11 +26,12 @@
     <aside class="dashboard-menu">
       <a href="dashboard.html" style="text-decoration: none; color: #003366;"><h2 style="cursor: pointer;">Panel</h2></a>
 
+      <!-- Resto del menú -->
       <button class="menu-button" onclick="toggleMenu(this)">Usuarios</button>
-      <div class="submenu" style="display:block">
+      <div class="submenu">
         <a href="registrar_usuario.html">Registrar</a>
         <a href="consultar_usuarios.html">Consultar</a>
-        <a href="actualizar_usuario.html" style="font-weight: bold;">Actualizar</a>
+        <a href="actualizar_usuario.html">Actualizar</a>
         <a href="inactivar_usuario.html">Inactivar</a>
       </div>
 
@@ -43,10 +44,10 @@
       </div>
 
       <button class="menu-button" onclick="toggleMenu(this)">Vehículos</button>
-      <div class="submenu">
+      <div class="submenu" style="display:block">
         <a href="registrar_vehiculo.html">Registrar</a>
         <a href="consultar_vehiculos.html">Consultar</a>
-        <a href="actualizar_vehiculo.html">Actualizar</a>
+        <a href="actualizar_vehiculo.html" style="font-weight: bold;">Actualizar</a>
         <a href="inactivar_vehiculo.html">Inactivar</a>
       </div>
 
@@ -89,40 +90,36 @@
     </aside>
 
     <section class="container dashboard-contenido">
-      <h2>Actualizar Usuario</h2>
-      <form action="/usuarios/actualizar" method="post">
+      <h2>Actualizar Vehículo</h2>
+      <form action="/vehiculos/actualizar" method="post">
 
-        <label for="tipoDocumento">Tipo de Documento</label>
-        <select id="tipoDocumento" name="tipoDocumento" required>
-          <option value="CC" selected>Cédula de Ciudadanía</option>
-          <option value="TI">Tarjeta de Identidad</option>
-          <option value="CE">Cédula de Extranjería</option>
+        <label for="placa">Placa del Vehículo</label>
+        <input type="text" id="placa" name="placa" value="ABC123" required>
+
+        <label for="tipo">Tipo de Vehículo</label>
+        <select id="tipo" name="tipo" required>
+          <option value="Moto">Moto</option>
+          <option value="Bicicleta">Bicicleta</option>
+          <option value="Patineta">Patineta</option>
+          <option value="Otro">Otro</option>
         </select>
 
-        <label for="documento">Número de Documento</label>
-        <input type="text" id="documento" name="documento" value="123456789" required>
+        <label for="marca">Marca</label>
+        <input type="text" id="marca" name="marca" value="Yamaha" required>
 
-        <label for="nombres">Nombres</label>
-        <input type="text" id="nombres" name="nombres" value="Juan" required>
+        <label for="color">Color</label>
+        <input type="text" id="color" name="color" value="Rojo" required>
 
-        <label for="apellidos">Apellidos</label>
-        <input type="text" id="apellidos" name="apellidos" value="Pérez" required>
+        <label for="idUsuario">Documento del Propietario</label>
+        <input type="text" id="idUsuario" name="idUsuario" value="123456789" required>
 
-        <label for="correo">Correo Electrónico</label>
-        <input type="email" id="correo" name="correo" value="juanperez@example.com" required>
-
-        <label for="telefono">Teléfono</label>
-        <input type="tel" id="telefono" name="telefono" value="3001234567">
-
-        <label for="rol">Rol</label>
-        <select id="rol" name="rol" required>
-          <option value="Administrador">Administrador</option>
-          <option value="Instructor" selected>Instructor</option>
-          <option value="Aprendiz">Aprendiz</option>
-          <option value="Coordinador">Coordinador</option>
+        <label for="estado">Estado</label>
+        <select id="estado" name="estado" required>
+          <option value="Activo">Activo</option>
+          <option value="Inactivo">Inactivo</option>
         </select>
 
-        <button type="submit">Actualizar Usuario</button>
+        <button type="submit">Actualizar Vehículo</button>
       </form>
     </section>
   </main>
