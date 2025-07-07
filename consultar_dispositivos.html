@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Consultar Dispositivos - Biometric Access</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="logo-nombre">
+        <img src="img/logo.png" alt="Logo">
+        <h1 style="margin: 0;">Biometric Access</h1>
+      </div>
+      <div class="perfil-dropdown">
+        <button class="perfil-btn">👤 NombreUsuario ▾</button>
+        <div class="perfil-menu">
+          <a href="#">Mi perfil</a>
+          <a href="#">Cerrar sesión</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="dashboard-wrapper">
+    <aside class="dashboard-menu">
+      <a href="dashboard.html" style="text-decoration: none; color: #003366;"><h2 style="cursor: pointer;">Panel</h2></a>
+
+      <button class="menu-button" onclick="toggleMenu(this)">Usuarios</button>
+      <div class="submenu">
+        <a href="registrar_usuario.html">Registrar</a>
+        <a href="consultar_usuarios.html">Consultar</a>
+        <a href="actualizar_usuario.html">Actualizar</a>
+        <a href="inactivar_usuario.html">Inactivar</a>
+      </div>
+
+      <button class="menu-button" onclick="toggleMenu(this)">Dispositivos</button>
+      <div class="submenu" style="display:block">
+        <a href="registrar_dispositivo.html">Registrar</a>
+        <a href="consultar_dispositivos.html" style="font-weight: bold;">Consultar</a>
+        <a href="actualizar_dispositivo.html">Actualizar</a>
+        <a href="inhabilitar_dispositivo.html">Inhabilitar</a>
+      </div>
+
+      <button class="menu-button" onclick="toggleMenu(this)">Vehículos</button>
+      <div class="submenu">
+        <a href="#">Registrar</a>
+        <a href="#">Consultar</a>
+        <a href="#">Actualizar</a>
+        <a href="#">Inactivar</a>
+      </div>
+
+      <button class="menu-button" onclick="toggleMenu(this)">Accesos</button>
+      <div class="submenu">
+        <a href="#">Registrar</a>
+        <a href="#">Historial</a>
+      </div>
+
+      <button class="menu-button" onclick="toggleMenu(this)">Jornadas</button>
+      <div class="submenu">
+        <a href="#">Asignar</a>
+        <a href="#">Consultar</a>
+        <a href="#">Actualizar</a>
+        <a href="#">Inactivar</a>
+      </div>
+
+      <button class="menu-button" onclick="toggleMenu(this)">Eventos</button>
+      <div class="submenu">
+        <a href="#">Reportar</a>
+        <a href="#">Consultar</a>
+        <a href="#">Actualizar</a>
+        <a href="#">Cerrar</a>
+      </div>
+
+      <button class="menu-button" onclick="toggleMenu(this)">Asistencias</button>
+      <div class="submenu">
+        <a href="#">Validar</a>
+        <a href="#">Reportes</a>
+      </div>
+
+      <button class="menu-button" onclick="toggleMenu(this)">Reportes Generales</button>
+      <div class="submenu">
+        <a href="#">Accesos</a>
+        <a href="#">Dispositivos</a>
+        <a href="#">Vehículos</a>
+        <a href="#">Asistencias</a>
+        <a href="#">Eventos</a>
+      </div>
+    </aside>
+
+    <section class="container dashboard-contenido">
+      <h2>Consultar Dispositivos</h2>
+      <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr style="background-color: #f0f0f0;">
+            <th>Serial</th>
+            <th>Tipo</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Color</th>
+            <th>Propietario</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Datos simulados -->
+          <tr>
+            <td>ABC123456</td>
+            <td>Portátil</td>
+            <td>HP</td>
+            <td>EliteBook 840</td>
+            <td>Gris</td>
+            <td>123456789</td>
+            <td>Activo</td>
+          </tr>
+          <tr>
+            <td>XYZ987654</td>
+            <td>Tablet</td>
+            <td>Samsung</td>
+            <td>Galaxy Tab A7</td>
+            <td>Negro</td>
+            <td>987654321</td>
+            <td>Inhabilitado</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Biometric Access. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    function toggleMenu(button) {
+      button.classList.toggle("active");
+      const submenu = button.nextElementSibling;
+      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+    }
+  </script>
+</body>
+</html>

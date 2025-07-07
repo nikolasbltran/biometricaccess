@@ -1,0 +1,244 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f6f9;
+  color: #333;
+}
+
+header, footer {
+  background-color: #0d63ba;
+  color: white;
+  padding: 1rem;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-nombre {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-nombre img {
+  height: 50px;
+}
+
+.nav-derecha {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-derecha a {
+  background-color: transparent;
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-derecha a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+main {
+  padding: 2rem;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  background-color: #003366;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0055aa;
+}
+
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+.service-section {
+  margin-bottom: 3rem;
+}
+.service-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.service-content img {
+  width: 220px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+.service-text {
+  flex: 1;
+  min-width: 250px;
+}
+.quienes-wrapper {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.quienes-wrapper img {
+  width: 300px;
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.quienes-text {
+  flex: 1;
+  min-width: 250px;
+}
+.contacto-wrapper {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.contacto-wrapper img {
+  width: 280px;
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.contacto-texto {
+  flex: 1;
+  min-width: 250px;
+}
+.dashboard-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.dashboard-menu {
+  width: 220px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  color: #003366;
+  font-weight: bold;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  padding: 0.5rem 0;
+}
+
+.menu-button:hover {
+  background-color: rgba(13, 99, 186, 0.1); /* mismo azul que el header con opacidad */
+  color: #0d63ba;
+  border-radius: 5px;
+}
+
+
+.submenu {
+  display: none;
+  margin-left: 1rem;
+}
+
+.submenu a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+}
+
+.submenu a:hover {
+  text-decoration: underline;
+}
+.perfil-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.perfil-btn {
+  background-color: transparent;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.perfil-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: white;
+  color: #333;
+  min-width: 150px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.perfil-menu a {
+  color: #003366;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  display: block;
+}
+
+.perfil-menu a:hover {
+  background-color: #f0f0f0;
+}
+
+/* Mostrar menú al hacer hover o clic */
+.perfil-dropdown:hover .perfil-menu {
+  display: block;
+}
+
+
+
+
+
