@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Consultar Usuarios - Biometric Access</title>
+  <title>Registrar Acceso - Biometric Access</title>
   <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
@@ -26,10 +26,11 @@
     <aside class="dashboard-menu">
       <a href="dashboard.html" style="text-decoration: none; color: #003366;"><h2 style="cursor: pointer;">Panel</h2></a>
 
+      <!-- Menú general -->
       <button class="menu-button" onclick="toggleMenu(this)">Usuarios</button>
-      <div class="submenu" style="display:block">
+      <div class="submenu">
         <a href="registrar_usuario.html">Registrar</a>
-        <a href="consultar_usuarios.html" style="font-weight: bold;">Consultar</a>
+        <a href="consultar_usuarios.html">Consultar</a>
         <a href="actualizar_usuario.html">Actualizar</a>
         <a href="inactivar_usuario.html">Inactivar</a>
       </div>
@@ -51,8 +52,8 @@
       </div>
 
       <button class="menu-button" onclick="toggleMenu(this)">Accesos</button>
-      <div class="submenu">
-        <a href="registrar_acceso.html">Registrar</a>
+      <div class="submenu" style="display:block">
+        <a href="registrar_acceso.html" style="font-weight: bold;">Registrar</a>
         <a href="historial_accesos.html">Historial</a>
       </div>
 
@@ -89,38 +90,41 @@
     </aside>
 
     <section class="container dashboard-contenido">
-      <h2>Consultar Usuarios</h2>
-      <table style="width: 100%; border-collapse: collapse;">
-        <thead>
-          <tr style="background-color: #f0f0f0;">
-            <th>Documento</th>
-            <th>Nombre Completo</th>
-            <th>Correo</th>
-            <th>Teléfono</th>
-            <th>Rol</th>
-            <th>Estado</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Aquí irán los usuarios consultados -->
-          <tr>
-            <td>123456789</td>
-            <td>Juan Pérez</td>
-            <td>juanperez@example.com</td>
-            <td>3001234567</td>
-            <td>Instructor</td>
-            <td>Activo</td>
-          </tr>
-          <tr>
-            <td>987654321</td>
-            <td>Ana Gómez</td>
-            <td>anagomez@example.com</td>
-            <td>3017654321</td>
-            <td>Aprendiz</td>
-            <td>Inactivo</td>
-          </tr>
-        </tbody>
-      </table>
+      <h2>Registrar Acceso Manual</h2>
+      <form action="/accesos/registrar" method="post">
+
+        <label for="documento">Documento del Usuario</label>
+        <input type="text" id="documento" name="documento" required>
+
+        <label for="fecha">Fecha</label>
+        <input type="date" id="fecha" name="fecha" required>
+
+        <label for="hora">Hora</label>
+        <input type="time" id="hora" name="hora" required>
+
+        <label for="tipo_acceso">Tipo de Acceso</label>
+        <select id="tipo_acceso" name="tipo_acceso" required>
+          <option value="Entrada">Entrada</option>
+          <option value="Salida">Salida</option>
+        </select>
+
+        <label for="jornada">Jornada</label>
+        <select id="jornada" name="jornada" required>
+          <option value="Diurna">Diurna</option>
+          <option value="Nocturna">Nocturna</option>
+          <option value="Madrugada">Madrugada</option>
+          <option value="Mixta">Mixta</option>
+        </select>
+
+        <label for="medio">Medio</label>
+        <select id="medio" name="medio" required>
+          <option value="QR">QR</option>
+          <option value="NFC">NFC</option>
+          <option value="Código de Barras">Código de Barras</option>
+        </select>
+
+        <button type="submit">Registrar Acceso</button>
+      </form>
     </section>
   </main>
 
