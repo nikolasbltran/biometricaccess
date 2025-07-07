@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Consultar Dispositivos - Biometric Access</title>
+  <title>Inactivar Jornada - Biometric Access</title>
   <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
@@ -26,6 +26,7 @@
     <aside class="dashboard-menu">
       <a href="dashboard.html" style="text-decoration: none; color: #003366;"><h2 style="cursor: pointer;">Panel</h2></a>
 
+      <!-- Menú general -->
       <button class="menu-button" onclick="toggleMenu(this)">Usuarios</button>
       <div class="submenu">
         <a href="registrar_usuario.html">Registrar</a>
@@ -35,9 +36,9 @@
       </div>
 
       <button class="menu-button" onclick="toggleMenu(this)">Dispositivos</button>
-      <div class="submenu" style="display:block">
+      <div class="submenu">
         <a href="registrar_dispositivo.html">Registrar</a>
-        <a href="consultar_dispositivos.html" style="font-weight: bold;">Consultar</a>
+        <a href="consultar_dispositivos.html">Consultar</a>
         <a href="actualizar_dispositivo.html">Actualizar</a>
         <a href="inhabilitar_dispositivo.html">Inhabilitar</a>
       </div>
@@ -57,11 +58,11 @@
       </div>
 
       <button class="menu-button" onclick="toggleMenu(this)">Jornadas</button>
-      <div class="submenu">
+      <div class="submenu" style="display:block">
         <a href="asignar_jornada.html">Asignar</a>
         <a href="consultar_jornadas.html">Consultar</a>
         <a href="actualizar_jornada.html">Actualizar</a>
-        <a href="inactivar_jornada.html">Inactivar</a>
+        <a href="inactivar_jornada.html" style="font-weight: bold;">Inactivar</a>
       </div>
 
       <button class="menu-button" onclick="toggleMenu(this)">Eventos</button>
@@ -89,41 +90,28 @@
     </aside>
 
     <section class="container dashboard-contenido">
-      <h2>Consultar Dispositivos</h2>
-      <table style="width: 100%; border-collapse: collapse;">
-        <thead>
-          <tr style="background-color: #f0f0f0;">
-            <th>Serial</th>
-            <th>Tipo</th>
-            <th>Marca</th>
-            <th>Modelo</th>
-            <th>Color</th>
-            <th>Propietario</th>
-            <th>Estado</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Datos simulados -->
-          <tr>
-            <td>ABC123456</td>
-            <td>Portátil</td>
-            <td>HP</td>
-            <td>EliteBook 840</td>
-            <td>Gris</td>
-            <td>123456789</td>
-            <td>Activo</td>
-          </tr>
-          <tr>
-            <td>XYZ987654</td>
-            <td>Tablet</td>
-            <td>Samsung</td>
-            <td>Galaxy Tab A7</td>
-            <td>Negro</td>
-            <td>987654321</td>
-            <td>Inhabilitado</td>
-          </tr>
-        </tbody>
-      </table>
+      <h2>Inactivar Jornada</h2>
+      <form action="/jornadas/inactivar" method="post">
+
+        <label for="documento">Documento del Usuario</label>
+        <input type="text" id="documento" name="documento" required>
+
+        <label for="jornada">Jornada Asignada</label>
+        <input type="text" id="jornada" name="jornada" value="Mixta" readonly>
+
+        <label for="motivo">Motivo de Inactivación</label>
+        <textarea id="motivo" name="motivo" rows="4" required></textarea>
+
+        <label for="administrador">Acción realizada por</label>
+        <input type="text" id="administrador" name="administrador" value="admin123" readonly>
+
+        <label for="estado">Nuevo Estado</label>
+        <select id="estado" name="estado" required>
+          <option value="Inactiva" selected>Inactiva</option>
+        </select>
+
+        <button type="submit">Inactivar Jornada</button>
+      </form>
     </section>
   </main>
 
