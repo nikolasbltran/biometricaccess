@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Consultar Jornadas - Biometric Access</title>
+  <title>Validar Asistencia - Biometric Access</title>
   <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
@@ -26,7 +26,6 @@
     <aside class="dashboard-menu">
       <a href="dashboard.html" style="text-decoration: none; color: #003366;"><h2 style="cursor: pointer;">Panel</h2></a>
 
-      <!-- Menú general con orden establecido -->
       <button class="menu-button" onclick="toggleMenu(this)">Usuarios</button>
       <div class="submenu">
         <a href="registrar_usuario.html">Registrar</a>
@@ -58,9 +57,9 @@
       </div>
 
       <button class="menu-button" onclick="toggleMenu(this)">Jornadas</button>
-      <div class="submenu" style="display:block">
+      <div class="submenu">
         <a href="asignar_jornada.html">Asignar</a>
-        <a href="consultar_jornadas.html" style="font-weight: bold;">Consultar</a>
+        <a href="consultar_jornadas.html">Consultar</a>
         <a href="actualizar_jornada.html">Actualizar</a>
         <a href="inactivar_jornada.html">Inactivar</a>
       </div>
@@ -74,8 +73,8 @@
       </div>
 
       <button class="menu-button" onclick="toggleMenu(this)">Asistencias</button>
-      <div class="submenu">
-        <a href="validar_asistencia.html">Validar</a>
+      <div class="submenu" style="display:block">
+        <a href="validar_asistencia.html" style="font-weight: bold;">Validar</a>
         <a href="reportes_asistencias.html">Reportes</a>
       </div>
 
@@ -90,38 +89,32 @@
     </aside>
 
     <section class="container dashboard-contenido">
-      <h2>Consultar Jornadas Asignadas</h2>
-      <table style="width: 100%; border-collapse: collapse;">
-        <thead>
-          <tr style="background-color: #f0f0f0;">
-            <th>Documento</th>
-            <th>Nombre</th>
-            <th>Jornada</th>
-            <th>Fecha Inicio</th>
-            <th>Fecha Fin</th>
-            <th>Estado</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Datos simulados -->
-          <tr>
-            <td>123456789</td>
-            <td>Juan Pérez</td>
-            <td>Nocturna</td>
-            <td>2025-07-01</td>
-            <td>2025-12-31</td>
-            <td>Activa</td>
-          </tr>
-          <tr>
-            <td>987654321</td>
-            <td>Ana Gómez</td>
-            <td>Diurna</td>
-            <td>2025-06-01</td>
-            <td>2025-06-30</td>
-            <td>Finalizada</td>
-          </tr>
-        </tbody>
-      </table>
+      <h2>Validar Asistencia</h2>
+      <form action="/asistencias/validar" method="post">
+
+        <label for="documento">Documento del Usuario</label>
+        <input type="text" id="documento" name="documento" required>
+
+        <label for="fecha">Fecha</label>
+        <input type="date" id="fecha" name="fecha" required>
+
+        <label for="jornada">Jornada</label>
+        <select id="jornada" name="jornada" required>
+          <option value="Diurna">Diurna</option>
+          <option value="Nocturna">Nocturna</option>
+          <option value="Madrugada">Madrugada</option>
+          <option value="Mixta">Mixta</option>
+        </select>
+
+        <label for="estado">Estado de Asistencia</label>
+        <select id="estado" name="estado" required>
+          <option value="Presente">Presente</option>
+          <option value="Ausente">Ausente</option>
+          <option value="Tardanza">Tardanza</option>
+        </select>
+
+        <button type="submit">Validar Asistencia</button>
+      </form>
     </section>
   </main>
 
