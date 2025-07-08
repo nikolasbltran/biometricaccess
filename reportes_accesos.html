@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Registrar Usuario - Biometric Access</title>
+  <title>Reportes de Accesos - Biometric Access</title>
   <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
@@ -21,13 +21,13 @@
       </div>
     </div>
   </header>
-
   <main class="dashboard-wrapper">
     <aside class="dashboard-menu">
       <a href="dashboard.html" style="text-decoration: none; color: #003366;"><h2 style="cursor: pointer;">Panel</h2></a>
+
       <button class="menu-button" onclick="toggleMenu(this)">Usuarios</button>
-      <div class="submenu" style="display:block">
-        <a href="registrar_usuario.html" style="font-weight: bold;">Registrar</a>
+      <div class="submenu">
+        <a href="registrar_usuario.html">Registrar</a>
         <a href="consultar_usuarios.html">Consultar</a>
         <a href="actualizar_usuario.html">Actualizar</a>
         <a href="inactivar_usuario.html">Inactivar</a>
@@ -52,7 +52,7 @@
       <button class="menu-button" onclick="toggleMenu(this)">Accesos</button>
       <div class="submenu">
         <a href="registrar_acceso.html">Registrar</a>
-        <a href="historial_accesos.html">Historial</a>
+        <a href="historial_accesos.html">Historial</a>        
       </div>
 
       <button class="menu-button" onclick="toggleMenu(this)">Jornadas</button>
@@ -78,66 +78,74 @@
       </div>
 
       <button class="menu-button" onclick="toggleMenu(this)">Reportes Generales</button>
-      <div class="submenu">
-        <a href="reportes_accesos.html">Accesos</a>
+      <div class="submenu" style="display:block">
+        <a href="reportes_accesos.html" style="font-weight: bold;">Accesos</a>
         <a href="reportes_dispositivos.html">Dispositivos</a>
-        <a href="repor">Vehículos</a>
+        <a href="reportes_vehiculos.html">Vehículos</a>
         <a href="reportes_asistencias.html">Asistencias</a>
-        <a href="reportar_evento.html">Eventos</a>
+        <a href="reportes_eventos.html">Eventos</a>
       </div>
     </aside>
-
     <section class="container dashboard-contenido">
-      <h2>Registrar Usuario</h2>
-      <form action="/usuarios/registrar" method="post">
-
-        <label for="tipoDocumento">Tipo de Documento</label>
-        <select id="tipoDocumento" name="tipoDocumento" required>
-          <option value="">Seleccione...</option>
-          <option value="CC">Cédula de Ciudadanía</option>
-          <option value="TI">Tarjeta de Identidad</option>
-          <option value="CE">Cédula de Extranjería</option>
-        </select>
-
+      <h2>Reporte de Accesos</h2>
+      <form action="/reportes/accesos" method="get">
         <label for="documento">Número de Documento</label>
-        <input type="text" id="documento" name="documento" required>
+        <input type="text" id="documento" name="documento" placeholder="Ingrese documento">
 
-        <label for="nombres">Nombres</label>
-        <input type="text" id="nombres" name="nombres" required>
+        <label for="fechaInicio">Fecha Inicio</label>
+        <input type="date" id="fechaInicio" name="fechaInicio" required>
 
-        <label for="apellidos">Apellidos</label>
-        <input type="text" id="apellidos" name="apellidos" required>
+        <label for="fechaFin">Fecha Fin</label>
+        <input type="date" id="fechaFin" name="fechaFin" required>
 
-        <label for="correo">Correo Electrónico</label>
-        <input type="email" id="correo" name="correo" required>
-
-        <label for="telefono">Teléfono</label>
-        <input type="tel" id="telefono" name="telefono">
-
-        <label for="rol">Rol</label>
-        <select id="rol" name="rol" required>
-          <option value="">Seleccione...</option>
-          <option value="Administrador">Administrador</option>
-          <option value="Instructor">Instructor</option>
-          <option value="Aprendiz">Aprendiz</option>
-          <option value="Coordinador">Coordinador</option>
+        <label for="jornada">Jornada</label>
+        <select id="jornada" name="jornada">
+          <option value="">Todas</option>
+          <option value="Diurna">Diurna</option>
+          <option value="Nocturna">Nocturna</option>
+          <option value="Madrugada">Madrugada</option>
+          <option value="Mixta">Mixta</option>
         </select>
 
-        <label for="estado">Estado</label>
-        <select id="estado" name="estado" required>
-          <option value="Activo">Activo</option>
-          <option value="Inactivo">Inactivo</option>
-        </select>
-
-        <button type="submit">Registrar Usuario</button>
+        <button type="submit">Generar Reporte</button>
       </form>
+
+      <h3>Resultados</h3>
+      <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr style="background-color: #f0f0f0;">
+            <th>Documento</th>
+            <th>Nombre</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Jornada</th>
+            <th>Medio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>123456789</td>
+            <td>Juan Pérez</td>
+            <td>2025-07-11</td>
+            <td>07:58</td>
+            <td>Diurna</td>
+            <td>QR</td>
+          </tr>
+          <tr>
+            <td>987654321</td>
+            <td>Ana Gómez</td>
+            <td>2025-07-11</td>
+            <td>18:03</td>
+            <td>Nocturna</td>
+            <td>NFC</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
   </main>
-
   <footer>
     <p>© 2025 Biometric Access. Todos los derechos reservados.</p>
   </footer>
-
   <script>
     function toggleMenu(button) {
       button.classList.toggle("active");
@@ -147,4 +155,3 @@
   </script>
 </body>
 </html>
-
